@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khoa Vi sinh - Miễn dịch</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:url('benhvien.jpg') no-repeat center center/cover;
+}
+
+.overlay{
+    background:rgba(255,255,255,0.95);
+    min-height:100vh;
+    padding:30px 15px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    background:#ffffff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.logo img{
+    width:130px;
+}
+
+h1{
+    text-align:center;
+    color:#006699;
+    margin-bottom:5px;
+}
+
+h2{
+    text-align:center;
+    color:#444;
+    margin-bottom:25px;
+}
+
+.info{
+    background:#f4f9fc;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+.info strong{
+    color:#006699;
+}
+
+h3{
+    margin-bottom:15px;
+    color:#006699;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+input:focus, textarea:focus{
+    border-color:#006699;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#006699;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#004466;
+}
+
+.success{
+    display:none;
+    background:#d4edda;
+    color:#155724;
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:15px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+<div class="container">
+
+<div class="logo">
+<img src="logo.png" alt="Logo bệnh viện">
+</div>
+
+<h1>Bệnh viện Phong - Da liễu Trung ương Quy Hòa</h1>
+<h2>Khoa Vi sinh - Miễn dịch</h2>
+
+<div class="info">
+<strong>Địa chỉ:</strong> 05A Chế Lan Viên, phường Quy Nhơn Nam, tỉnh Gia Lai<br><br>
+
+<strong>Điện thoại:</strong><br>
+- 0256.3532536 (Giờ hành chính)<br>
+- 0256.3705557 (Ngoài giờ)<br><br>
+
+<strong>Thời gian làm việc:</strong><br>
+- Sáng: 07h00 - 11h30<br>
+- Chiều: 13h30 - 17h00
+</div>
+
+<h3>Liên hệ tư vấn</h3>
+
+<div class="success" id="success-message">
+Gửi thành công! Vui lòng kiểm tra email của bạn.
+</div>
+
+<form id="contact-form">
+<input type="text" name="name" placeholder="Họ và tên" required>
+<input type="email" name="email" placeholder="Email của bạn" required>
+<textarea name="message" rows="5" placeholder="Nội dung cần tư vấn" required></textarea>
+<button type="submit">Gửi thông tin</button>
+</form>
+
+</div>
+</div>
+
+<script>
+(function(){
+emailjs.init("RWhILanim_0jyaxej");
+})();
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(event){
+event.preventDefault();
+var form = this;
+
+emailjs.sendForm(
+"service_vssuopt",
+"template_ik4uimd",
+form
+).then(function(){
+
+emailjs.sendForm(
+"service_vssuopt",
+"template_uu77dkwz",
+form
+);
+
+document.getElementById("success-message").style.display = "block";
+form.reset();
+
+}, function(error){
+alert("Có lỗi xảy ra. Vui lòng thử lại.");
+});
+});
+</script>
+
+</body>
+</html>
