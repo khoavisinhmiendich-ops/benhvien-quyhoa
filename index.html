@@ -117,12 +117,6 @@ button:hover{
 </head>
 
 <body>
-   <script>
-var password = prompt("Nhập mật khẩu nội bộ:");
-if(password !== "khoa108"){
-    document.body.innerHTML = "<h2>Không có quyền truy cập</h2>";
-}
-</script> 
 
 <div class="overlay">
 <div class="container">
@@ -160,7 +154,7 @@ Gửi thành công! Vui lòng kiểm tra email của bạn.
 <input type="text" name="name" placeholder="Thời gian trả kết quả" required>
 <textarea name="message" rows="5" placeholder="Nội dung cần tư vấn" required></textarea>
 
-<button type="submit">Gửi thông tin</button>
+<button type="submit">Gửi qua gmail</button>
 <button type="button" onclick="sendZalo()">Gửi qua Zalo</button>
 </form>
 
@@ -214,6 +208,7 @@ window.open("https://zalo.me/" + phone, "_blank");
 </body>
 
 </html>
+
 
 
 
