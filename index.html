@@ -117,6 +117,12 @@ button:hover{
 </head>
 
 <body>
+   <script>
+var password = prompt("Nhập mật khẩu nội bộ:");
+if(password !== "khoa108"){
+    document.body.innerHTML = "<h2>Không có quyền truy cập</h2>";
+}
+</script> 
 
 <div class="overlay">
 <div class="container">
@@ -208,6 +214,7 @@ window.open("https://zalo.me/" + phone, "_blank");
 </body>
 
 </html>
+
 
 
 
