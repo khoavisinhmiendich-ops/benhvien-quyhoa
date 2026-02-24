@@ -150,9 +150,12 @@ Gửi thành công! Vui lòng kiểm tra email của bạn.
 <form id="contact-form">
 <input type="text" name="name" placeholder="Họ và tên" required>
 <input type="email" name="email" placeholder="Email của bạn" required>
-<textarea name="message" rows="5" placeholder="Nội dung cần tư vấn" required></textarea>
+<input type="text" name="phone" placeholder="Số điện thoại Zalo" required>
 <input type="text" name="name" placeholder="Thời gian trả kết quả" required>
+<textarea name="message" rows="5" placeholder="Nội dung cần tư vấn" required></textarea>
+
 <button type="submit">Gửi thông tin</button>
+<button type="button" onclick="sendZalo()">Gửi qua Zalo</button>
 </form>
 
 </div>
@@ -187,11 +190,25 @@ form.reset();
 alert("Có lỗi xảy ra. Vui lòng thử lại.");
 });
 });
+function sendZalo(){
+
+var phone = document.querySelector("input[name='phone']").value;
+var name = document.querySelector("input[name='name']").value;
+
+if(!phone){
+alert("Vui lòng nhập số điện thoại");
+return;
+}
+
+window.open("https://zalo.me/" + phone, "_blank");
+
+}
 </script>
 
 </body>
 
 </html>
+
 
 
 
