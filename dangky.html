@@ -16,18 +16,38 @@ body{
 .container{
     width:900px;
     margin:60px auto;
-    background: rgba(255,255,255,0.80);
-    backdrop-filter: blur(3px);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
     padding:40px 60px;
     border-radius:12px;
-    box-shadow:0 0 40px rgba(0,0,0,0.4);
+    box-shadow:0 0 40px rgba(0,0,0,0.1);
+}
+.header{
+    text-align:center;
 }
 
-.header{text-align:center;}
-.header img{width:140px;margin-bottom:10px;}
-.header h1{font-size:22px;margin:5px 0;font-weight:bold;color:#003366;}
-.header h2{font-size:18px;margin:5px 0;}
-.header h3{font-size:18px;margin-top:15px;font-weight:bold;}
+.header img{
+    width:140px;
+    margin-bottom:10px;
+}
+
+.header h1{
+    font-size:22px;
+    margin:5px 0;
+    font-weight:bold;
+    color:#003366;
+}
+
+.header h2{
+    font-size:18px;
+    margin:5px 0;
+}
+
+.header h3{
+    font-size:18px;
+    margin-top:15px;
+    font-weight:bold;
+}
 
 .info-box{
     margin-top:25px;
@@ -66,7 +86,10 @@ button{
     border-radius:4px;
     cursor:pointer;
 }
-button:hover{background:#001f4d;}
+
+button:hover{
+    background:#001f4d;
+}
 </style>
 </head>
 
@@ -75,10 +98,10 @@ button:hover{background:#001f4d;}
 <div class="container">
 
 <div class="header">
-<img src="logo.png">
+<img src="logo.png" alt="Logo bệnh viện">
 <h1>BỆNH VIỆN PHONG - DA LIỄU TRUNG ƯƠNG QUY HÒA</h1>
 <h2>KHOA VI SINH - MIỄN DỊCH</h2>
-<h3>PHIẾU TRẢ KẾT QUẢ XÉT NGHIỆM 108 DỊ NGUYÊN</h3>
+<h3>PHIẾU TRẢ KẾT QUẢ XÉT NGHIỆM DỊ NGUYÊN</h3>
 </div>
 
 <div class="info-box">
@@ -94,44 +117,25 @@ button:hover{background:#001f4d;}
 
 <div class="section-title">THÔNG TIN LIÊN HỆ</div>
 
-<form id="contactForm">
+<form action="https://hook.eu1.make.com/8vbqyl8s9g6pwqid389nwf35xychx8di" method="POST">
+
 <input type="text" name="hoten" placeholder="Họ và tên" required>
 <input type="email" name="email" placeholder="Email" required>
 <input type="text" name="sdt" placeholder="Số điện thoại" required>
+<input type="text" name="thoigian" placeholder="Thời gian" required>
 <textarea name="noidung" rows="4" placeholder="Nội dung cần tư vấn"></textarea>
+
+<input type="hidden" name="thoigian" id="thoigian">
+
 <button type="submit">GỬI YÊU CẦU</button>
+
 </form>
 
 </div>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-e.preventDefault();
-
-const data = {
-hoten: document.querySelector("[name='hoten']").value,
-email: document.querySelector("[name='email']").value,
-sdt: document.querySelector("[name='sdt']").value,
-noidung: document.querySelector("[name='noidung']").value,
-thoigian: new Date().toLocaleString("vi-VN")
-};
-
-fetch("https://hook.eu1.make.com/8vbqyl8s9g6pwqid389nwf35xychx8di",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
-})
-.then(res=>{
-alert("Gửi yêu cầu thành công! Chúng tôi sẽ liên hệ sớm.");
-document.getElementById("contactForm").reset();
-})
-.catch(err=>{
-alert("Có lỗi xảy ra!");
-});
-});
+document.getElementById("thoigian").value = new Date().toLocaleString("vi-VN");
 </script>
 
 </body>
 </html>
-
-
